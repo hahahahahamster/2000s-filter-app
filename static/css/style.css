@@ -1,0 +1,170 @@
+body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(to bottom, #e0e5ec, #f8f9fb);
+    color: #222;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 950px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+h1 {
+    font-size: 32px;
+    color: #34495e;
+    text-shadow: 1px 1px 0 #ccc;
+    margin-bottom: 25px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.flash p {
+    color: lightsteelblue; 
+    font-weight: bold;
+}
+
+form {
+    margin: 20px 0;
+}
+
+.upload-box {
+    border: 3px dashed #34495e;
+    padding: 50px;
+    margin: 0 auto 20px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 12px;
+    transition: background 0.2s, border-color 0.2s;
+    background: #f0f3f7;
+}
+
+.upload-box:hover {
+    background: #e0e5ec;
+    border-color: #2c3e50;
+}
+
+.upload-box p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.upload-box input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    opacity:0;
+    cursor:pointer;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 2px solid #34495e;
+    border-radius: 8px;
+    background: #f0f3f7;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.filter-btn.selected {
+    background: #34495e;
+    color: #fff;
+}
+
+.filter-btn:hover {
+    background: #2c3e50;
+    color: #fff;
+}
+
+.generate-btn {
+    /* 修改后的样式 */
+    padding: 15px 30px;
+    margin-top: 20px;
+    border: 3px solid #34495e;
+    border-radius: 10px;
+    background: #34495e;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.generate-btn:hover {
+    background: #2c3e50;
+}
+
+.preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.preview div {
+    margin: 15px;
+}
+
+.preview img {
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.processed-placeholder, .generating-message {
+    width: 350px;
+    height: auto;
+    min-height: 200px;
+    background-color: #f0f3f7;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.processed-placeholder p {
+    color: #888;
+    font-style: italic;
+    padding: 20px;
+}
+
+.generating-message p {
+    color: #34495e;
+    font-weight: bold;
+}
+
+.download-btn {
+    display: block;
+    width: 80%;
+    margin: 15px auto 0;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+    background-color: #3870b2;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2000s Style Filter Lab</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>2000s Style Filter Lab</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">
+                {% for msg in messages %}<p>{{ msg }}</p>{% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" enctype="multipart/form-data" id="upload-form">
+        <div class="upload-box" id="upload-box">
+            <p>Drag & Drop image here or click to upload</p>
+            <input type="file" name="image" id="upload" accept="image/*">
+        </div>
+
+        <div class="filter-buttons">
+            {% for f in filters %}
+                <button type="button" name="filter" value="{{f}}" class="filter-btn {% if f==selected_filter %}selected{% endif %}">{{f.capitalize()}}</button>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="generate-btn">Generate</button>
+    </form>
+
+    <div class="preview">
+        <div id="original-container">
+            {% if original %}
+                <h3>- Original -</h3>
+                <img id="preview-original" src="{{ url_for('static', filename='uploads/' + original) }}">
+            {% endif %}
+        </div>
+        <div id="processed-container">
+            <h3>- Filtered -</h3>
+            {% if processed %}
+                <img id="preview-processed" src="{{ url_for('static', filename='processed/' + processed) }}">
+                <a href="{{ url_for('download', filename=processed) }}" download class="download-btn">Download</a>
+            {% else %}
+                <div class="processed-placeholder">
+                    <p>click the generate button to start the journey back to 2000s!</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
