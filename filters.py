@@ -23,8 +23,8 @@ def apply_filter(image_path, filter_name):
     img = Image.open(image_path).convert('RGB')
 
     # 古早像素缩放
-    img = img.resize((img.width//2, img.height//2), Image.Resampling.NEAREST)
-    img = img.resize((img.width*2, img.height*2), Image.Resampling.NEAREST)
+    img = img.resize((img.width//2, img.height//2), Image.NEAREST)
+    img = img.resize((img.width*2, img.height*2), Image.NEAREST)
 
     # 过滤器列表
     if filter_name == 'vintage':
