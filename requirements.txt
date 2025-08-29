@@ -1,2 +1,3 @@
 Flask
-Pillow==10.1.0
+Pillow==8.4.0
+gunicorn
