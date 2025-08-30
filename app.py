@@ -40,7 +40,7 @@ def index():
             file.save(filepath)
             LAST_ORIGINAL = filename
             LAST_PROCESSED = None
-            flash("Image uploaded successfully!") # 图片上传成功后立即清除提示
+            flash("Image generated successfully!") # 图片上传成功后立即清除提示
 
         # 如果没有新文件上传且没有历史图片，则提示用户
         elif not LAST_ORIGINAL:
@@ -61,4 +61,5 @@ def download(filename):
     return send_from_directory(PROCESSED_FOLDER, filename, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Railway 会注入 PORT，本地默认 5000
+    app.run(host='0.0.0.0', port=port, debug=True)  # host='0.0.0.0' 允许外部访问
