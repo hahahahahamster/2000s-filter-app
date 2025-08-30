@@ -1,0 +1,9 @@
+{
+  "build": {
+    "installCommand": "pip install --no-cache-dir -r requirements.txt",
+    "buildCommand": "pip install --no-cache-dir -r requirements.txt"
+  },
+  "deploy": {
+    "startCommand": "gunicorn app:app --bind 0.0.0.0:$PORT"
+  }
+}
