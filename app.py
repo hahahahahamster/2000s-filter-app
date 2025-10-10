@@ -12,15 +12,15 @@ app.secret_key = "2000sfiltersecret"
 
 ALLOWED_EXTENSIONS = {'png','jpg','jpeg','bmp','gif','tiff','tif','webp','avif','heif'}
 
-# 更新 FILTERS 列表，新增9个爆款Y2K风格滤镜
-FILTERS = ['ccd', 'vintage', 'kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'dark_brown', 'lomo', 'dreamy', 'vhs', 'vaporwave', 'glitch', 'y2k', 'cyberpunk', 'neon_pop', 'digital_cam', 'cyber_pink', 'retro_blue', 'millennium_gold', 'matrix_green', 'disco_fever', 'tech_silver', 'y2k_purple', 'misty_gray', 'cloudy_dream', 'foggy_memory', 'silver_mist', 'dusty_film', 'hazy_night', 'soft_focus', 'vintage_blur', 'neon_glow', 'cyber_retro', 'synthwave', 'sepia_dust', 'polaroid_fade', 'chrome_shine', 'bubble_pop', 'glitch_art', 'holographic']
+# 更新 FILTERS 列表，新增10个爆款Y2K风格滤镜
+FILTERS = ['ccd', 'vintage', 'kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'dark_brown', 'lomo', 'dreamy', 'vhs', 'vaporwave', 'glitch', 'y2k', 'cyberpunk', 'neon_pop', 'digital_cam', 'cyber_pink', 'retro_blue', 'millennium_gold', 'matrix_green', 'disco_fever', 'tech_silver', 'y2k_purple', 'misty_gray', 'cloudy_dream', 'foggy_memory', 'silver_mist', 'dusty_film', 'hazy_night', 'soft_focus', 'vintage_blur', 'neon_glow', 'cyber_retro', 'synthwave', 'sepia_dust', 'polaroid_fade', 'chrome_shine', 'bubble_pop', 'glitch_art', 'holographic', 'electric_blue', 'neon_pink', 'cyber_green', 'retro_orange', 'film_grain', 'aged_paper', 'metallic_silver', 'neon_cyan', 'digital_noise', 'rainbow_shift']
 
 # 滤镜分类
 FILTER_CATEGORIES = {
-    'basic': ['ccd', 'vintage', 'lomo', 'dreamy', 'neon_glow', 'cyber_retro', 'synthwave'],
-    'vintage': ['kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'dark_brown', 'vhs', 'sepia_dust', 'polaroid_fade'],
-    'y2k': ['y2k', 'cyberpunk', 'neon_pop', 'cyber_pink', 'y2k_purple', 'millennium_gold', 'chrome_shine', 'bubble_pop'],
-    'effects': ['vaporwave', 'glitch', 'matrix_green', 'disco_fever', 'tech_silver', 'glitch_art', 'holographic'],
+    'basic': ['ccd', 'vintage', 'lomo', 'dreamy', 'neon_glow', 'cyber_retro', 'synthwave', 'electric_blue', 'neon_pink', 'cyber_green', 'retro_orange'],
+    'vintage': ['kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'dark_brown', 'vhs', 'sepia_dust', 'polaroid_fade', 'film_grain', 'aged_paper'],
+    'y2k': ['y2k', 'cyberpunk', 'neon_pop', 'cyber_pink', 'y2k_purple', 'millennium_gold', 'chrome_shine', 'bubble_pop', 'metallic_silver', 'neon_cyan'],
+    'effects': ['vaporwave', 'glitch', 'matrix_green', 'disco_fever', 'tech_silver', 'glitch_art', 'holographic', 'digital_noise', 'rainbow_shift'],
     'advanced': ['digital_cam', 'retro_blue', 'misty_gray', 'cloudy_dream', 'foggy_memory', 'silver_mist', 'dusty_film', 'hazy_night', 'soft_focus', 'vintage_blur']
 }
 

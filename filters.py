@@ -603,6 +603,152 @@ def apply_filter(image_data, filter_name):
             g_img.paste(new_g, (0, 0))
             img = Image.merge("RGB", (r, g_img, b))
             img = add_grain_pure_pil(img, intensity=40)
+
+        # 新增10个爆款Y2K风格滤镜
+        elif filter_name == 'electric_blue':
+            # 电蓝色调 - Basic类别，高对比度蓝色调
+            img = ImageEnhance.Contrast(img).enhance(1.5)
+            img = ImageEnhance.Color(img).enhance(1.4)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*0.7),
+                g.point(lambda i: i*1.1),
+                b.point(lambda i: i*1.4)
+            ))
+            img = add_grain_pure_pil(img, intensity=30)
+
+        elif filter_name == 'neon_pink':
+            # 霓虹粉色 - Basic类别，高饱和度粉色调
+            img = ImageEnhance.Color(img).enhance(1.8)
+            img = ImageEnhance.Brightness(img).enhance(1.2)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.4),
+                g.point(lambda i: i*0.8),
+                b.point(lambda i: i*1.2)
+            ))
+            img = add_grain_pure_pil(img, intensity=35)
+
+        elif filter_name == 'cyber_green':
+            # 赛博绿色 - Basic类别，科技感绿色调
+            img = ImageEnhance.Contrast(img).enhance(1.4)
+            img = ImageEnhance.Color(img).enhance(1.3)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*0.6),
+                g.point(lambda i: i*1.3),
+                b.point(lambda i: i*0.8)
+            ))
+            img = add_grain_pure_pil(img, intensity=32)
+
+        elif filter_name == 'retro_orange':
+            # 复古橙色 - Basic类别，温暖橙色调
+            img = ImageEnhance.Brightness(img).enhance(1.1)
+            img = ImageEnhance.Color(img).enhance(1.2)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.3),
+                g.point(lambda i: i*1.1),
+                b.point(lambda i: i*0.7)
+            ))
+            img = add_grain_pure_pil(img, intensity=28)
+
+        elif filter_name == 'film_grain':
+            # 胶片颗粒 - Vintage类别，复古胶片质感
+            img = ImageEnhance.Color(img).enhance(0.8)
+            img = ImageEnhance.Brightness(img).enhance(0.9)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*0.9),
+                g.point(lambda i: i*0.85),
+                b.point(lambda i: i*0.8)
+            ))
+            img = add_grain_pure_pil(img, intensity=50)
+
+        elif filter_name == 'aged_paper':
+            # 老化纸张 - Vintage类别，怀旧纸张效果
+            img = ImageEnhance.Color(img).enhance(0.7)
+            img = ImageEnhance.Brightness(img).enhance(1.05)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.1),
+                g.point(lambda i: i*1.05),
+                b.point(lambda i: i*0.9)
+            ))
+            img = add_grain_pure_pil(img, intensity=45)
+
+        elif filter_name == 'metallic_silver':
+            # 金属银色 - Y2K类别，未来感银色调
+            img = ImageEnhance.Contrast(img).enhance(1.6)
+            img = ImageEnhance.Brightness(img).enhance(1.1)
+            img = ImageEnhance.Color(img).enhance(0.6)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.0),
+                g.point(lambda i: i*1.0),
+                b.point(lambda i: i*1.0)
+            ))
+            img = add_grain_pure_pil(img, intensity=25)
+
+        elif filter_name == 'neon_cyan':
+            # 霓虹青色 - Y2K类别，Y2K风格青色调
+            img = ImageEnhance.Color(img).enhance(1.7)
+            img = ImageEnhance.Brightness(img).enhance(1.15)
+            img = ImageEnhance.Contrast(img).enhance(1.3)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*0.8),
+                g.point(lambda i: i*1.2),
+                b.point(lambda i: i*1.3)
+            ))
+            img = add_grain_pure_pil(img, intensity=30)
+
+        elif filter_name == 'digital_noise':
+            # 数字噪点 - Special Effects类别，故障噪点效果
+            img = ImageEnhance.Contrast(img).enhance(1.7)
+            img = ImageEnhance.Brightness(img).enhance(0.95)
+            
+            # 创建数字噪点效果
+            offset = 6
+            r, g, b = img.split()
+            
+            # 红色通道向右偏移
+            new_r = r.crop((offset, 0, img.width, img.height))
+            r_img = Image.new('L', img.size)
+            r_img.paste(new_r, (0, 0))
+            
+            # 蓝色通道向左偏移
+            new_b = b.crop((0, 0, img.width - offset, img.height))
+            b_img = Image.new('L', img.size)
+            b_img.paste(new_b, (offset, 0))
+            
+            img = Image.merge("RGB", (r_img, g, b_img))
+            img = add_grain_pure_pil(img, intensity=60)
+
+        elif filter_name == 'rainbow_shift':
+            # 彩虹偏移 - Special Effects类别，全息彩虹效果
+            img = ImageEnhance.Color(img).enhance(2.2)
+            img = ImageEnhance.Brightness(img).enhance(1.1)
+            img = ImageEnhance.Contrast(img).enhance(1.5)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.4),
+                g.point(lambda i: i*1.3),
+                b.point(lambda i: i*1.5)
+            ))
+            # 添加彩虹色偏移效果
+            offset = 4
+            r, g, b = img.split()
+            new_r = r.crop((offset, 0, img.width, img.height))
+            r_img = Image.new('L', img.size)
+            r_img.paste(new_r, (0, 0))
+            
+            new_b = b.crop((0, 0, img.width - offset, img.height))
+            b_img = Image.new('L', img.size)
+            b_img.paste(new_b, (offset, 0))
+            
+            img = Image.merge("RGB", (r_img, g, b_img))
+            img = add_grain_pure_pil(img, intensity=45)
         
         # 将处理后的图片转换为字节数据返回，不保存文件
         img_io = io.BytesIO()
