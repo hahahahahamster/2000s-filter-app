@@ -33,6 +33,7 @@ categoryTabs.forEach(tab => {
         
         const category = tab.dataset.category;
         // 只更新UI显示，不触发任何处理
+        // 绝对不自动应用任何滤镜
         filterByCategory(category);
     });
 });
@@ -61,6 +62,9 @@ function filterByCategory(category) {
     // 确保不会自动触发任何处理
     // 分类切换只更新UI显示，不处理图片
     // 不自动选择任何滤镜，不触发任何事件
+    // 绝对不自动应用ccd滤镜或其他任何滤镜
+    // 这个函数只负责UI更新，不处理任何图片
+    return; // 明确返回，确保不执行任何其他操作
 }
 
 // 处理文件拖拽
