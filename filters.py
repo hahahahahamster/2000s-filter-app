@@ -3,6 +3,15 @@ import random
 import io
 import logging
 
+# 尝试导入HEIF/AVIF支持
+try:
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
+    HEIF_SUPPORT = True
+except ImportError:
+    HEIF_SUPPORT = False
+    logging.warning("pillow-heif not installed, HEIF/AVIF support disabled")
+
 # 设置日志
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -10,7 +19,7 @@ logger = logging.getLogger(__name__)
 # 图片处理配置
 MAX_IMAGE_SIZE = (4096, 4096)  # 最大支持4K图片
 MAX_FILE_SIZE = 50 * 1024 * 1024  # 最大文件大小50MB
-SUPPORTED_FORMATS = ['JPEG', 'PNG', 'BMP', 'GIF', 'TIFF', 'WEBP']
+SUPPORTED_FORMATS = ['JPEG', 'PNG', 'BMP', 'GIF', 'TIFF', 'WEBP', 'AVIF', 'HEIF']
 
 def validate_image(image_data):
     """验证图片数据"""
@@ -24,6 +33,9 @@ def validate_image(image_data):
         
         # 检查图片格式
         if img.format not in SUPPORTED_FORMATS:
+            # 如果没有HEIF支持，但格式是HEIF/AVIF，给出特殊提示
+            if img.format in ['HEIF', 'AVIF'] and not HEIF_SUPPORT:
+                return False, f"HEIF/AVIF format detected but pillow-heif not installed. Please install: pip install pillow-heif"
             return False, f"Unsupported image format ({img.format}), supported formats: {', '.join(SUPPORTED_FORMATS)}"
         
         # 检查图片尺寸
@@ -460,6 +472,137 @@ def apply_filter(image_data, filter_name):
                 b.point(lambda i: i*0.85)
             ))
             img = add_grain_pure_pil(img, intensity=26)
+
+        # 新增9个爆款Y2K风格滤镜
+        elif filter_name == 'neon_glow':
+            # 霓虹发光 - Basic类别，高亮度高对比度，霓虹灯效果
+            img = ImageEnhance.Brightness(img).enhance(1.3)
+            img = ImageEnhance.Contrast(img).enhance(1.4)
+            img = ImageEnhance.Color(img).enhance(1.6)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.2),
+                g.point(lambda i: i*1.1),
+                b.point(lambda i: i*1.3)
+            ))
+            img = add_grain_pure_pil(img, intensity=25)
+
+        elif filter_name == 'cyber_retro':
+            # 赛博复古 - Basic类别，冷色调，未来复古感
+            img = ImageEnhance.Contrast(img).enhance(1.3)
+            img = ImageEnhance.Color(img).enhance(1.2)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*0.9),
+                g.point(lambda i: i*1.1),
+                b.point(lambda i: i*1.2)
+            ))
+            img = add_grain_pure_pil(img, intensity=35)
+
+        elif filter_name == 'synthwave':
+            # 合成波 - Basic类别，粉紫色调，80年代电子音乐风格
+            img = ImageEnhance.Color(img).enhance(1.7)
+            img = ImageEnhance.Brightness(img).enhance(1.1)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.3),
+                g.point(lambda i: i*0.9),
+                b.point(lambda i: i*1.4)
+            ))
+            img = add_grain_pure_pil(img, intensity=30)
+
+        elif filter_name == 'sepia_dust':
+            # 深褐色复古 - Vintage类别，深褐色调，增加颗粒感
+            img = ImageEnhance.Color(img).enhance(0.6)
+            img = ImageEnhance.Brightness(img).enhance(0.8)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*0.7),
+                g.point(lambda i: i*0.6),
+                b.point(lambda i: i*0.5)
+            ))
+            img = add_grain_pure_pil(img, intensity=45)
+
+        elif filter_name == 'polaroid_fade':
+            # 宝丽来褪色 - Vintage类别，降低饱和度，淡黄色调
+            img = ImageEnhance.Color(img).enhance(0.7)
+            img = ImageEnhance.Brightness(img).enhance(1.05)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.1),
+                g.point(lambda i: i*1.05),
+                b.point(lambda i: i*0.9)
+            ))
+            img = add_grain_pure_pil(img, intensity=32)
+
+        elif filter_name == 'chrome_shine':
+            # 金属光泽 - Y2K类别，增加金属光泽和高光
+            img = ImageEnhance.Contrast(img).enhance(1.5)
+            img = ImageEnhance.Brightness(img).enhance(1.2)
+            img = ImageEnhance.Color(img).enhance(1.3)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.1),
+                g.point(lambda i: i*1.1),
+                b.point(lambda i: i*1.1)
+            ))
+            img = img.filter(ImageFilter.SHARPEN)
+            img = add_grain_pure_pil(img, intensity=20)
+
+        elif filter_name == 'bubble_pop':
+            # 泡泡流行 - Y2K类别，明亮色彩，高对比度
+            img = ImageEnhance.Color(img).enhance(1.8)
+            img = ImageEnhance.Brightness(img).enhance(1.15)
+            img = ImageEnhance.Contrast(img).enhance(1.3)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.2),
+                g.point(lambda i: i*1.1),
+                b.point(lambda i: i*1.3)
+            ))
+            img = add_grain_pure_pil(img, intensity=28)
+
+        elif filter_name == 'glitch_art':
+            # 故障艺术 - Special Effects类别，模拟数字信号干扰
+            img = ImageEnhance.Contrast(img).enhance(1.6)
+            img = ImageEnhance.Brightness(img).enhance(0.9)
+            
+            # 创建RGB通道偏移效果
+            offset = 8
+            r, g, b = img.split()
+            
+            # 红色通道向右偏移
+            new_r = r.crop((offset, 0, img.width, img.height))
+            r_img = Image.new('L', img.size)
+            r_img.paste(new_r, (0, 0))
+            
+            # 蓝色通道向左偏移
+            new_b = b.crop((0, 0, img.width - offset, img.height))
+            b_img = Image.new('L', img.size)
+            b_img.paste(new_b, (offset, 0))
+            
+            img = Image.merge("RGB", (r_img, g, b_img))
+            img = add_grain_pure_pil(img, intensity=55)
+
+        elif filter_name == 'holographic':
+            # 全息图 - Special Effects类别，彩虹色调和光斑效果
+            img = ImageEnhance.Color(img).enhance(2.0)
+            img = ImageEnhance.Brightness(img).enhance(1.1)
+            img = ImageEnhance.Contrast(img).enhance(1.4)
+            r, g, b = img.split()
+            img = Image.merge("RGB", (
+                r.point(lambda i: i*1.3),
+                g.point(lambda i: i*1.2),
+                b.point(lambda i: i*1.4)
+            ))
+            # 添加彩虹色偏移效果
+            offset = 3
+            r, g, b = img.split()
+            new_g = g.crop((offset, 0, img.width, img.height))
+            g_img = Image.new('L', img.size)
+            g_img.paste(new_g, (0, 0))
+            img = Image.merge("RGB", (r, g_img, b))
+            img = add_grain_pure_pil(img, intensity=40)
         
         # 将处理后的图片转换为字节数据返回，不保存文件
         img_io = io.BytesIO()

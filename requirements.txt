@@ -1,3 +1,4 @@
 Flask
 Pillow==8.4.0
+pillow-heif
 gunicorn
