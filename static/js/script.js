@@ -32,6 +32,7 @@ categoryTabs.forEach(tab => {
         tab.classList.add('active');
         
         const category = tab.dataset.category;
+        // 只更新UI显示，不触发任何处理
         filterByCategory(category);
     });
 });
@@ -39,6 +40,7 @@ categoryTabs.forEach(tab => {
 function filterByCategory(category) {
     const allFilterButtons = document.querySelectorAll('.filter-btn');
     
+    // 只更新滤镜按钮的显示/隐藏状态
     allFilterButtons.forEach(button => {
         if (category === 'all') {
             button.style.display = 'inline-block';
@@ -55,6 +57,9 @@ function filterByCategory(category) {
         // 只移除选中状态，不自动选择新滤镜
         selectedButton.classList.remove('selected');
     }
+    
+    // 确保不会自动触发任何处理
+    // 分类切换只更新UI显示，不处理图片
 }
 
 // 处理文件拖拽
