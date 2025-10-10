@@ -1,4 +1,4 @@
-Flask
-Pillow==8.4.0
-pillow-heif
-gunicorn
+Flask==2.3.3
+Pillow==9.5.0
+gunicorn==21.2.0
+Werkzeug==2.3.7

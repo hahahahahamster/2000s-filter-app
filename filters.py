@@ -8,9 +8,13 @@ try:
     from pillow_heif import register_heif_opener
     register_heif_opener()
     HEIF_SUPPORT = True
+    logging.info("HEIF/AVIF support enabled")
 except ImportError:
     HEIF_SUPPORT = False
-    logging.warning("pillow-heif not installed, HEIF/AVIF support disabled")
+    logging.info("pillow-heif not available, HEIF/AVIF support disabled")
+except Exception as e:
+    HEIF_SUPPORT = False
+    logging.warning(f"Error initializing HEIF support: {e}")
 
 # 设置日志
 logging.basicConfig(level=logging.INFO)
