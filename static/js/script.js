@@ -49,16 +49,11 @@ function filterByCategory(category) {
         }
     });
     
-    // 如果当前选中的滤镜被隐藏了，选择该分类下的第一个可见滤镜
+    // 如果当前选中的滤镜被隐藏了，只移除选中状态，不自动选择新滤镜
     const selectedButton = document.querySelector('.filter-btn.selected');
     if (selectedButton && selectedButton.style.display === 'none') {
-        const visibleButtons = Array.from(allFilterButtons).filter(btn => btn.style.display !== 'none');
-        if (visibleButtons.length > 0) {
-            // 移除当前选中状态
-            allFilterButtons.forEach(btn => btn.classList.remove('selected'));
-            // 选择第一个可见的滤镜
-            visibleButtons[0].classList.add('selected');
-        }
+        // 只移除选中状态，不自动选择新滤镜
+        selectedButton.classList.remove('selected');
     }
 }
 
