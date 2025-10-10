@@ -302,29 +302,29 @@ form {
 }
 
 .filter-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin: 2rem 0;
     max-width: 100%;
-    justify-items: center;
+    justify-content: center;
 }
 
 .filter-btn {
-    padding: 0.8rem 1.2rem;
+    padding: 0.7rem 1rem;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.1);
     color: white;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    width: 100%;
-    max-width: 150px;
+    min-width: 110px;
     text-align: center;
     white-space: nowrap;
+    flex: 0 1 auto;
 }
 
 .filter-btn.selected {
@@ -823,14 +823,13 @@ form {
     }
     
     .filter-buttons {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         gap: 0.6rem;
     }
     
     .filter-btn {
         padding: 0.6rem 1rem;
         font-size: 0.8rem;
-        max-width: 120px;
+        min-width: 100px;
     }
 }
 
@@ -886,14 +885,17 @@ form {
 }
 
 .social-links a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     text-align: center;
-    line-height: 40px;
     transition: all 0.3s ease;
+    font-size: 18px;
+    color: white;
 }
 
 .social-links a:hover {
@@ -978,16 +980,6 @@ form {
     
     h1 {
         font-size: 2rem;
-    }
-    
-    .category-tabs {
-        gap: 0.5rem;
-    }
-    
-    .category-tab {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.95rem;
-        letter-spacing: 0.5px;
     }
     
     .generate-button-container {

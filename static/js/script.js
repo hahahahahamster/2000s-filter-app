@@ -205,6 +205,12 @@ generateButton.addEventListener('click', e => {
     const selectedFilter = document.querySelector('.filter-btn.selected');
     const filterName = selectedFilter ? selectedFilter.value : 'ccd';
     
+    // 检查是否与当前已应用的滤镜相同
+    if (currentFilter && filterName === currentFilter) {
+        showMessage("This filter has already been applied to your image!");
+        return;
+    }
+    
     processImage(filterName);
 });
 
@@ -249,14 +255,14 @@ function showMessage(message) {
 }
 
 function scrollToFilterCategories() {
-    const filterCategories = document.getElementById('filters');
-    if (filterCategories) {
+    const categoryTabs = document.querySelector('.category-tabs');
+    if (categoryTabs) {
         // 获取导航栏高度
         const navbar = document.querySelector('.navbar');
         const navbarHeight = navbar ? navbar.offsetHeight : 0;
         
-        // 计算滚动位置，确保滤镜分类选项可见
-        const targetPosition = filterCategories.offsetTop - navbarHeight - 20;
+        // 计算滚动位置，让分类标签与导航栏底部对齐
+        const targetPosition = categoryTabs.offsetTop - navbarHeight + 80;
         
         window.scrollTo({
             top: targetPosition,
