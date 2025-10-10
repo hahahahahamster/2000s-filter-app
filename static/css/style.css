@@ -387,7 +387,7 @@ form {
     justify-content: space-around;
     align-items: flex-start;
     margin-top: 5rem;
-    gap: 2rem;
+    gap: 1rem;
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
@@ -400,17 +400,32 @@ form {
     align-items: center;
     max-width: 600px;
     min-width: 400px;
+    margin: 0 0.5rem;
 }
 
+/* 中等屏幕优化 */
+@media (max-width: 1200px) {
+    .preview {
+        gap: 0.8rem;
+        max-width: 1200px;
+    }
+    
+    .preview div {
+        margin: 0 0.3rem;
+    }
+}
+
+/* 小屏幕优化 */
 @media (max-width: 768px) {
     .preview {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
     }
     
     .preview div {
         min-width: auto;
         max-width: 100%;
+        margin: 0;
     }
 }
 
