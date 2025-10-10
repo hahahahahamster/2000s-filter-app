@@ -60,6 +60,7 @@ function filterByCategory(category) {
     
     // 确保不会自动触发任何处理
     // 分类切换只更新UI显示，不处理图片
+    // 不自动选择任何滤镜，不触发任何事件
 }
 
 // 处理文件拖拽
@@ -159,14 +160,16 @@ filterButtons.forEach(button => {
         filterButtons.forEach(btn => btn.classList.remove('selected'));
         button.classList.add('selected');
         
-        // 如果有图片上传且滤镜不同，才处理图片
-        if (uploadInput.files.length > 0 && button.value !== currentFilter) {
-            processImage(button.value);
-        } else if (uploadInput.files.length > 0 && button.value === currentFilter) {
-            // 如果滤镜相同，显示提示信息
-            showMessage('Same filter already applied - no processing needed');
+        // 只有在有图片上传时才处理
+        if (uploadInput.files.length > 0) {
+            if (button.value !== currentFilter) {
+                processImage(button.value);
+            } else {
+                // 如果滤镜相同，显示提示信息
+                showMessage('Same filter already applied - no processing needed');
+            }
         }
-        // 如果滤镜相同，只更新UI状态，不重新处理
+        // 如果没有上传图片，只更新UI状态，不显示任何提示
     });
 });
 
