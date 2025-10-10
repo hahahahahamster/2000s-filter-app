@@ -1,24 +1,30 @@
-from flask import Flask, request, render_template, flash, send_from_directory, redirect, url_for
+from flask import Flask, request, render_template, flash, jsonify, redirect, url_for
 import os
+import io
+import base64
 from filters import apply_filter
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = "2000sfiltersecret"
 
-UPLOAD_FOLDER = 'static/uploads'
-PROCESSED_FOLDER = 'static/processed'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-os.makedirs(PROCESSED_FOLDER, exist_ok=True)
+# 不再需要保存文件夹，所有处理都在内存中进行
 
-ALLOWED_EXTENSIONS = {'png','jpg','jpeg','bmp','gif'}
+ALLOWED_EXTENSIONS = {'png','jpg','jpeg','bmp','gif','tiff','tif','webp'}
 
-# 更新 FILTERS 列表，新增爆款滤镜
-FILTERS = ['ccd', 'vintage', 'film', 'kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'sepia', 'dark_brown', 'lomo', 'dreamy', 'vhs', 'bw', 'vaporwave', 'glitch', 'y2k']
+# 更新 FILTERS 列表，新增8个更模糊、灰色调的Y2K风格滤镜
+FILTERS = ['ccd', 'vintage', 'kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'dark_brown', 'lomo', 'dreamy', 'vhs', 'vaporwave', 'glitch', 'y2k', 'cyberpunk', 'neon_pop', 'digital_cam', 'cyber_pink', 'retro_blue', 'millennium_gold', 'matrix_green', 'disco_fever', 'tech_silver', 'y2k_purple', 'misty_gray', 'cloudy_dream', 'foggy_memory', 'silver_mist', 'dusty_film', 'hazy_night', 'soft_focus', 'vintage_blur']
 
-# 全局变量保留上次上传的图片和滤镜
-LAST_ORIGINAL = None
-LAST_PROCESSED = None
+# 滤镜分类
+FILTER_CATEGORIES = {
+    'basic': ['ccd', 'vintage', 'lomo', 'dreamy'],
+    'vintage': ['kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'dark_brown', 'vhs'],
+    'y2k': ['y2k', 'cyberpunk', 'neon_pop', 'cyber_pink', 'y2k_purple', 'millennium_gold'],
+    'effects': ['vaporwave', 'glitch', 'matrix_green', 'disco_fever', 'tech_silver'],
+    'advanced': ['digital_cam', 'retro_blue', 'misty_gray', 'cloudy_dream', 'foggy_memory', 'silver_mist', 'dusty_film', 'hazy_night', 'soft_focus', 'vintage_blur']
+}
+
+# 全局变量保留上次的滤镜选择
 LAST_FILTER = 'ccd'
 
 def allowed_file(filename):
@@ -26,39 +32,73 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    global LAST_ORIGINAL, LAST_PROCESSED, LAST_FILTER
+    global LAST_FILTER
 
     if request.method == 'POST':
         filter_name = request.form.get('filter', LAST_FILTER)
         
-        # 检查是否有新的文件上传
+        # 检查是否有文件上传
         file = request.files.get('image')
         
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            filepath = os.path.join(UPLOAD_FOLDER, filename)
-            file.save(filepath)
-            LAST_ORIGINAL = filename
-            LAST_PROCESSED = None
-            flash("Image generated successfully!") # 图片上传成功后立即清除提示
+            try:
+                # 读取文件数据到内存
+                file_data = file.read()
+                
+                # 检查文件大小
+                if len(file_data) == 0:
+                    return jsonify({
+                        'success': False,
+                        'error': 'Uploaded file is empty, please select a valid image file'
+                    })
+                
+                # 直接在内存中应用滤镜
+                processed_data = apply_filter(file_data, filter_name)
+                LAST_FILTER = filter_name
+                
+                # 将处理后的图片转换为base64编码
+                processed_base64 = base64.b64encode(processed_data).decode('utf-8')
+                
+                # 返回JSON响应，包含base64图片数据
+                return jsonify({
+                    'success': True,
+                    'filtered_image': f'data:image/jpeg;base64,{processed_base64}',
+                    'filter_name': filter_name
+                })
+                
+            except ValueError as e:
+                # 用户输入错误（文件过大、格式不支持等）
+                return jsonify({
+                    'success': False,
+                    'error': str(e)
+                })
+            except Exception as e:
+                # 其他处理错误
+                return jsonify({
+                    'success': False,
+                    'error': f'Image processing failed: {str(e)}, please try a different image or contact support'
+                })
+        else:
+            return jsonify({
+                'success': False,
+                'error': f'Please upload a valid image file! Supported formats: {", ".join(ALLOWED_EXTENSIONS)}'
+            })
+    
+    return render_template('index.html', filters=FILTERS, selected_filter=LAST_FILTER, filter_categories=FILTER_CATEGORIES)
 
-        # 如果没有新文件上传且没有历史图片，则提示用户
-        elif not LAST_ORIGINAL:
-            flash("Please upload an image first!")
-            return render_template('index.html', original=LAST_ORIGINAL, processed=LAST_PROCESSED, filters=FILTERS, selected_filter=LAST_FILTER)
-        
-        # 应用滤镜
-        processed_path = apply_filter(os.path.join(UPLOAD_FOLDER, LAST_ORIGINAL), filter_name)
-        LAST_PROCESSED = os.path.basename(processed_path)
-        LAST_FILTER = filter_name
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
 
-    return render_template('index.html', original=LAST_ORIGINAL, processed=LAST_PROCESSED, filters=FILTERS, selected_filter=LAST_FILTER)
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
-@app.route('/download/<filename>')
-def download(filename):
-    """提供处理后的图片供用户下载"""
-    # 确保文件存在且在处理后的文件夹中
-    return send_from_directory(PROCESSED_FOLDER, filename, as_attachment=True)
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+# 不再需要下载路由，图片直接通过主路由返回
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # Railway 会注入 PORT，本地默认 5000
