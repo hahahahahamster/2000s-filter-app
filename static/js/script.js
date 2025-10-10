@@ -16,10 +16,10 @@ let isProcessing = false;
 
 // Filter categories mapping
 const filterCategories = {
-    'basic': ['ccd', 'vintage', 'lomo', 'dreamy'],
-    'vintage': ['kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'dark_brown', 'vhs'],
-    'y2k': ['y2k', 'cyberpunk', 'neon_pop', 'cyber_pink', 'y2k_purple', 'millennium_gold'],
-    'effects': ['vaporwave', 'glitch', 'matrix_green', 'disco_fever', 'tech_silver'],
+    'basic': ['ccd', 'vintage', 'lomo', 'dreamy', 'neon_glow', 'cyber_retro', 'synthwave', 'electric_blue', 'neon_pink', 'cyber_green', 'retro_orange'],
+    'vintage': ['kodachrome', 'fuji_superia', 'agfa', 'retro_green', 'dark_brown', 'vhs', 'sepia_dust', 'polaroid_fade', 'film_grain', 'aged_paper'],
+    'y2k': ['y2k', 'cyberpunk', 'neon_pop', 'cyber_pink', 'y2k_purple', 'millennium_gold', 'chrome_shine', 'bubble_pop', 'metallic_silver', 'neon_cyan'],
+    'effects': ['vaporwave', 'glitch', 'matrix_green', 'disco_fever', 'tech_silver', 'glitch_art', 'holographic', 'digital_noise', 'rainbow_shift'],
     'advanced': ['digital_cam', 'retro_blue', 'misty_gray', 'cloudy_dream', 'foggy_memory', 'silver_mist', 'dusty_film', 'hazy_night', 'soft_focus', 'vintage_blur']
 };
 
