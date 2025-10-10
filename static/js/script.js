@@ -9,6 +9,11 @@ const generateButton = document.querySelector('.generate-btn');
 const categoryTabs = document.querySelectorAll('.category-tab');
 const filterButtonsContainer = document.getElementById('filter-buttons');
 
+// 状态管理
+let currentImageData = null;
+let currentFilter = null;
+let isProcessing = false;
+
 // Filter categories mapping
 const filterCategories = {
     'basic': ['ccd', 'vintage', 'lomo', 'dreamy'],
@@ -43,6 +48,18 @@ function filterByCategory(category) {
             button.style.display = shouldShow ? 'inline-block' : 'none';
         }
     });
+    
+    // 如果当前选中的滤镜被隐藏了，选择该分类下的第一个可见滤镜
+    const selectedButton = document.querySelector('.filter-btn.selected');
+    if (selectedButton && selectedButton.style.display === 'none') {
+        const visibleButtons = Array.from(allFilterButtons).filter(btn => btn.style.display !== 'none');
+        if (visibleButtons.length > 0) {
+            // 移除当前选中状态
+            allFilterButtons.forEach(btn => btn.classList.remove('selected'));
+            // 选择第一个可见的滤镜
+            visibleButtons[0].classList.add('selected');
+        }
+    }
 }
 
 // 处理文件拖拽
@@ -71,6 +88,11 @@ uploadInput.addEventListener('change', handleFileChange);
 function handleFileChange() {
     if (uploadInput.files.length) {
         const file = uploadInput.files[0];
+        
+        // 重置状态
+        currentImageData = null;
+        currentFilter = null;
+        isProcessing = false;
         
         // 清除提示信息
         if (flashMessage) {
@@ -137,11 +159,14 @@ filterButtons.forEach(button => {
         filterButtons.forEach(btn => btn.classList.remove('selected'));
         button.classList.add('selected');
         
-        // 如果有图片上传，自动应用滤镜
-        if (uploadInput.files.length > 0) {
+        // 如果有图片上传且滤镜不同，才处理图片
+        if (uploadInput.files.length > 0 && button.value !== currentFilter) {
             processImage(button.value);
+        } else if (uploadInput.files.length > 0 && button.value === currentFilter) {
+            // 如果滤镜相同，显示提示信息
+            showMessage('Same filter already applied - no processing needed');
         }
-        // 移除未上传图片时的提示，让用户自由选择滤镜
+        // 如果滤镜相同，只更新UI状态，不重新处理
     });
 });
 
@@ -185,6 +210,9 @@ function displayFilteredImage(imageData, filterName) {
             <a href="${imageData}" download="filtered_${filterName}.jpg" class="download-btn">Download</a>
         </div>
     `;
+    
+    // 保存当前图片数据
+    currentImageData = imageData;
     
     // 显示生成成功消息
     showMessage('Photo generated successfully! You can download and save it');
@@ -298,13 +326,19 @@ function setGenerateButtonLoading(loading) {
     }
 }
 
-// Update processImage function to use loading state
+// Update processImage function to use loading state and avoid duplicate processing
 function processImage(filterName) {
     if (!uploadInput.files.length) {
         showMessage("Please upload an image first!");
         return;
     }
     
+    // 如果正在处理或滤镜相同，避免重复处理
+    if (isProcessing || filterName === currentFilter) {
+        return;
+    }
+    
+    isProcessing = true;
     setGenerateButtonLoading(true);
     showGeneratingMessage();
     
@@ -318,8 +352,10 @@ function processImage(filterName) {
     })
     .then(response => response.json())
     .then(data => {
+        isProcessing = false;
         setGenerateButtonLoading(false);
         if (data.success) {
+            currentFilter = filterName;
             displayFilteredImage(data.filtered_image, data.filter_name);
         } else {
             showMessage(data.error || 'Processing failed. Please try again');
@@ -328,6 +364,7 @@ function processImage(filterName) {
     })
     .catch(error => {
         console.error('Error:', error);
+        isProcessing = false;
         setGenerateButtonLoading(false);
         showMessage('Network error occurred, please try again');
         showPlaceholder();
