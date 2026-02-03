@@ -1,143 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1N0149ZWC1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1N0149ZWC1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-1N0149ZWC1');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Frequently Asked Questions about 2000s Filter Lab - Learn how to use our retro photo filters and get help with common issues.">
-<meta name="keywords" content="2000s, retro, filter, FAQ, help, support, photo editing">
+        gtag('config', 'G-1N0149ZWC1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Frequently Asked Questions about 2000s Filter Lab - Learn how to use our retro photo filters and get help with common issues.">
+    <meta name="keywords" content="2000s, retro, filter, FAQ, help, support, photo editing">
 
-<!-- Font Awesome for social media icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<title>FAQ - 2000s Filter Lab</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>FAQ - 2000s Filter Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-<!-- Navigation Bar -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="/" class="logo">2000s Filter Lab</a>
-        <ul class="nav-menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/#filters">Filter Categories</a></li>
-            <li><a href="/faq" class="active">FAQ</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="page-content">
-    <h1>Frequently Asked Questions</h1>
-    <p>Find answers to common questions about using 2000s Filter Lab and our retro photo filters.</p>
-
-    <div class="faq-item">
-        <div class="faq-question">What image formats are supported?</div>
-        <div class="faq-answer">We support JPEG, PNG, BMP, GIF, TIFF, and WEBP formats. The maximum file size is 50MB and maximum resolution is 4K (4096x4096 pixels).</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">How do I use the filters?</div>
-        <div class="faq-answer">Simply upload your image by dragging and dropping or clicking the upload area, select a filter from the categories, and click "Generate" to apply the effect to your photo.</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">Are my images stored on your servers?</div>
-        <div class="faq-answer">No, we process all images in memory and don't store them on our servers. Your privacy is important to us, and your images are processed securely without being saved.</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">What makes these filters "2000s style"?</div>
-        <div class="faq-answer">Our filters recreate the aesthetic of early 2000s photography, including CCD camera effects, VHS-style color grading, film grain, and the distinctive look of digital cameras from that era.</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">Can I use the filtered images commercially?</div>
-        <div class="faq-answer">Yes, you own the rights to your original images and the filtered versions. You can use them for personal or commercial purposes as you see fit.</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">Why is my image taking a long time to process?</div>
-        <div class="faq-answer">Processing time depends on image size and complexity. Larger images (close to 4K resolution) may take longer. If processing seems stuck, try refreshing the page and uploading again.</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">Do you offer mobile apps?</div>
-        <div class="faq-answer">Currently, we only offer a web-based service that works on all devices through your browser. Our website is fully responsive and optimized for mobile use.</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">How can I get the best results?</div>
-        <div class="faq-answer">For best results, use high-quality images with good lighting. The filters work well with portraits, landscapes, and everyday photos. Experiment with different filter categories to find your preferred style.</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">Is the service free to use?</div>
-        <div class="faq-answer">Yes, 2000s Filter Lab is completely free to use. You can process as many images as you like without any cost or registration required.</div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">I'm having technical issues. How can I get help?</div>
-        <div class="faq-answer">If you're experiencing technical problems, please try refreshing the page first. If the issue persists, contact our support team through the Contact page, and we'll be happy to help you.</div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>2000s Filter Lab</h4>
-            <p>Transform your photos with nostalgic millennium styles. Experience the magic of CCD, VHS, Film, and Y2K aesthetics.</p>
-            <div class="social-links">
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">2000s Filter Lab</a>
+            <ul class="nav-menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/#filters">Filter Categories</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/about">About Us</a></li>
+                <li><a href="/faq" class="active">FAQ</a></li>
+                <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
-        
-        <div class="footer-section">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="/faq">Help Center</a></li>
-                <li><a href="/contact">Contact Support</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Contact Info</h4>
-            <p>📧 support@2000sfilterlab.com</p>
-            <p>📞 +1 (555) 123-4567</p>
-            <p>📍 123 Digital Street, Tech City, TC 12345</p>
-        </div>
-    </div>
-    
-    <div class="footer-bottom">
-        <p>&copy; 2025 2000s Filter Lab. All rights reserved. | Made with ❤️ for nostalgic memories</p>
-    </div>
-</footer>
-</body>
-</html>
+    </nav>
 
+    <div class="page-content">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about using 2000s Filter Lab and our retro photo filters.</p>
+
+        <div class="faq-item">
+            <div class="faq-question">What image formats are supported?</div>
+            <div class="faq-answer">We support JPEG, PNG, BMP, GIF, TIFF, and WEBP formats. The maximum file size is
+                50MB and maximum resolution is 4K (4096x4096 pixels).</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I use the filters?</div>
+            <div class="faq-answer">Simply upload your image by dragging and dropping or clicking the upload area,
+                select a filter from the categories, and click "Generate" to apply the effect to your photo.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Are my images stored on your servers?</div>
+            <div class="faq-answer">No, we process all images in memory and don't store them on our servers. Your
+                privacy is important to us, and your images are processed securely without being saved.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What makes these filters "2000s style"?</div>
+            <div class="faq-answer">Our filters recreate the aesthetic of early 2000s photography, including CCD camera
+                effects, VHS-style color grading, film grain, and the distinctive look of digital cameras from that era.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I use the filtered images commercially?</div>
+            <div class="faq-answer">Yes, you own the rights to your original images and the filtered versions. You can
+                use them for personal or commercial purposes as you see fit.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Why is my image taking a long time to process?</div>
+            <div class="faq-answer">Processing time depends on image size and complexity. Larger images (close to 4K
+                resolution) may take longer. If processing seems stuck, try refreshing the page and uploading again.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do you offer mobile apps?</div>
+            <div class="faq-answer">Currently, we only offer a web-based service that works on all devices through your
+                browser. Our website is fully responsive and optimized for mobile use.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I get the best results?</div>
+            <div class="faq-answer">For best results, use high-quality images with good lighting. The filters work well
+                with portraits, landscapes, and everyday photos. Experiment with different filter categories to find
+                your preferred style.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is the service free to use?</div>
+            <div class="faq-answer">Yes, 2000s Filter Lab is completely free to use. You can process as many images as
+                you like without any cost or registration required.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">I'm having technical issues. How can I get help?</div>
+            <div class="faq-answer">If you're experiencing technical problems, please try refreshing the page first. If
+                the issue persists, contact our support team through the Contact page, and we'll be happy to help you.
+            </div>
+        </div>
+
+        <!-- Advertisement Section -->
+        <div class="ad-section">
+            <p class="ad-section-title">✨ You Might Like ✨</p>
+            <div class="ad-banner-container">
+                <a href="https://app.partnerboost.com/track/662b5O07xz94rE69DP7jeoRrEDynl3HHxnol1GUxXPizcJ68Y0g2uk4uYq_bPPcVGe1Y0XEZbBhXZPDqeGhZpD0w_c?url=https%3A%2F%2Fwww.amazon.com%2Fstores%2Fpage%2F8DA6A70A-A1F7-4FF5-BB93-CD1EA3EA342B%3Fmaas%3Dmaas_adg_api_584632148466405944_static_12_201%26ref_%3Daa_maas%26tag%3Dmaas%26aa_campaignid%3Dbd93c0c3063ad597de8eff160c0c9335%26aa_adgroupid%3D9d50bWtYsC6hYqnswUntIJoBPYgyfRNz5IMYC2nnbwxRmvraOHBKSqgJAp7JjxkMw5fhd2wBX2_ag8qt5G3Mx%26aa_creativeid%3Db998eincJZX5tHorSBzTqOISZQMz7Hru98obGjINp5xHnMc_c"
+                    class="ad-banner ad-banner-single" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='ads/dog.jpg') }}" alt="Pet Supplies & More"
+                        class="ad-banner-image">
+                    <div class="ad-banner-content">
+                        <span class="ad-banner-badge">🐕 Pet Lovers</span>
+                        <p class="ad-banner-title">Pet Supplies & More</p>
+                        <span class="ad-banner-cta">Shop Now</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>2000s Filter Lab</h4>
+                <p>Transform your photos with nostalgic millennium styles. Experience the magic of CCD, VHS, Film, and
+                    Y2K aesthetics.</p>
+                <div class="social-links">
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#filters">Filter Categories</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/faq">Help Center</a></li>
+                    <li><a href="/contact">Contact Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📧 support@2000sfilterlab.com</p>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>📍 123 Digital Street, Tech City, TC 12345</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 2000s Filter Lab. All rights reserved. | Made with ❤️ for nostalgic memories</p>
+        </div>
+    </footer>
+</body>
+
+</html>

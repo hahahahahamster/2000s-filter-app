@@ -1,171 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1N0149ZWC1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1N0149ZWC1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-1N0149ZWC1');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Contact 2000s Filter Lab - Get in touch with our team for support, feedback, or business inquiries.">
-<meta name="keywords" content="2000s, retro, filter, contact, support, help, feedback">
+        gtag('config', 'G-1N0149ZWC1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contact 2000s Filter Lab - Get in touch with our team for support, feedback, or business inquiries.">
+    <meta name="keywords" content="2000s, retro, filter, contact, support, help, feedback">
 
-<!-- Font Awesome for social media icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<title>Contact Us - 2000s Filter Lab</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Contact Us - 2000s Filter Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-<!-- Navigation Bar -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="/" class="logo">2000s Filter Lab</a>
-        <ul class="nav-menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/#filters">Filter Categories</a></li>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact" class="active">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="page-content">
-    <h1>Contact Us</h1>
-    <p>We'd love to hear from you! Whether you have questions, feedback, or just want to say hello, don't hesitate to reach out.</p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
-        <div class="faq-item">
-            <h3 style="color: white; margin-bottom: 1rem;">📧 Email Support</h3>
-            <p>For technical support, general inquiries, or feedback:</p>
-            <p><strong>support@2000sfilterlab.com</strong></p>
-            <p>We typically respond within 24-48 hours.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3 style="color: white; margin-bottom: 1rem;">📞 Phone Support</h3>
-            <p>For urgent matters or business inquiries:</p>
-            <p><strong>+1 (555) 123-4567</strong></p>
-            <p>Available Monday-Friday, 9 AM - 6 PM EST</p>
-        </div>
-
-        <div class="faq-item">
-            <h3 style="color: white; margin-bottom: 1rem;">📍 Office Address</h3>
-            <p>Visit us at our headquarters:</p>
-            <p><strong>123 Digital Street<br>Tech City, TC 12345<br>United States</strong></p>
-        </div>
-
-        <div class="faq-item">
-            <h3 style="color: white; margin-bottom: 1rem;">💬 Social Media</h3>
-            <p>Connect with us on social platforms:</p>
-            <div class="social-links" style="justify-content: flex-start; margin-top: 1rem;">
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <h2>Send Us a Message</h2>
-    <p>Use the form below to send us a direct message. We'll get back to you as soon as possible!</p>
-
-    <form style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
-            <div>
-                <label style="display: block; color: white; margin-bottom: 0.5rem; font-weight: 500;">Name *</label>
-                <input type="text" required style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; backdrop-filter: blur(10px);" placeholder="Your full name">
-            </div>
-            <div>
-                <label style="display: block; color: white; margin-bottom: 0.5rem; font-weight: 500;">Email *</label>
-                <input type="email" required style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; backdrop-filter: blur(10px);" placeholder="your.email@example.com">
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 1rem;">
-            <label style="display: block; color: white; margin-bottom: 0.5rem; font-weight: 500;">Subject *</label>
-            <select required style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; backdrop-filter: blur(10px);">
-                <option value="">Select a subject</option>
-                <option value="support">Technical Support</option>
-                <option value="feedback">Feedback & Suggestions</option>
-                <option value="business">Business Inquiry</option>
-                <option value="bug">Report a Bug</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
-        
-        <div style="margin-bottom: 1.5rem;">
-            <label style="display: block; color: white; margin-bottom: 0.5rem; font-weight: 500;">Message *</label>
-            <textarea required rows="6" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; backdrop-filter: blur(10px); resize: vertical;" placeholder="Tell us how we can help you..."></textarea>
-        </div>
-        
-        <button type="submit" class="generate-btn" style="width: 100%;">Send Message</button>
-    </form>
-
-    <h2>Frequently Asked Questions</h2>
-    <p>Before contacting us, you might find the answer to your question in our <a href="/faq" style="color: #667eea; text-decoration: none;">FAQ section</a>.</p>
-
-    <h2>Business Hours</h2>
-    <div class="faq-item">
-        <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM EST</p>
-        <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM EST</p>
-        <p><strong>Sunday:</strong> Closed</p>
-        <p><em>We observe major US holidays and may have reduced hours during holiday periods.</em></p>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>2000s Filter Lab</h4>
-            <p>Transform your photos with nostalgic millennium styles. Experience the magic of CCD, VHS, Film, and Y2K aesthetics.</p>
-            <div class="social-links">
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">2000s Filter Lab</a>
+            <ul class="nav-menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/#filters">Filter Categories</a></li>
                 <li><a href="/faq">FAQ</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact" class="active">Contact</a></li>
             </ul>
         </div>
-        
-        <div class="footer-section">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="/faq">Help Center</a></li>
-                <li><a href="/contact">Contact Support</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
+    </nav>
+
+    <div class="page-content">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Whether you have questions, feedback, or just want to say hello, don't hesitate
+            to reach out.</p>
+
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <div class="faq-item">
+                <h3 style="color: white; margin-bottom: 1rem;">📧 Email Support</h3>
+                <p>For technical support, general inquiries, or feedback:</p>
+                <p><strong>support@2000sfilterlab.com</strong></p>
+                <p>We typically respond within 24-48 hours.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 style="color: white; margin-bottom: 1rem;">📞 Phone Support</h3>
+                <p>For urgent matters or business inquiries:</p>
+                <p><strong>+1 (555) 123-4567</strong></p>
+                <p>Available Monday-Friday, 9 AM - 6 PM EST</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 style="color: white; margin-bottom: 1rem;">📍 Office Address</h3>
+                <p>Visit us at our headquarters:</p>
+                <p><strong>123 Digital Street<br>Tech City, TC 12345<br>United States</strong></p>
+            </div>
+
+            <div class="faq-item">
+                <h3 style="color: white; margin-bottom: 1rem;">💬 Social Media</h3>
+                <p>Connect with us on social platforms:</p>
+                <div class="social-links" style="justify-content: flex-start; margin-top: 1rem;">
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
-        
-        <div class="footer-section">
-            <h4>Contact Info</h4>
-            <p>📧 support@2000sfilterlab.com</p>
-            <p>📞 +1 (555) 123-4567</p>
-            <p>📍 123 Digital Street, Tech City, TC 12345</p>
+
+        <h2>Send Us a Message</h2>
+        <p>Use the form below to send us a direct message. We'll get back to you as soon as possible!</p>
+
+        <form
+            style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                    <label style="display: block; color: white; margin-bottom: 0.5rem; font-weight: 500;">Name *</label>
+                    <input type="text" required
+                        style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; backdrop-filter: blur(10px);"
+                        placeholder="Your full name">
+                </div>
+                <div>
+                    <label style="display: block; color: white; margin-bottom: 0.5rem; font-weight: 500;">Email
+                        *</label>
+                    <input type="email" required
+                        style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; backdrop-filter: blur(10px);"
+                        placeholder="your.email@example.com">
+                </div>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; color: white; margin-bottom: 0.5rem; font-weight: 500;">Subject *</label>
+                <select required
+                    style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; backdrop-filter: blur(10px);">
+                    <option value="">Select a subject</option>
+                    <option value="support">Technical Support</option>
+                    <option value="feedback">Feedback & Suggestions</option>
+                    <option value="business">Business Inquiry</option>
+                    <option value="bug">Report a Bug</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; color: white; margin-bottom: 0.5rem; font-weight: 500;">Message *</label>
+                <textarea required rows="6"
+                    style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; backdrop-filter: blur(10px); resize: vertical;"
+                    placeholder="Tell us how we can help you..."></textarea>
+            </div>
+
+            <button type="submit" class="generate-btn" style="width: 100%;">Send Message</button>
+        </form>
+
+        <h2>Frequently Asked Questions</h2>
+        <p>Before contacting us, you might find the answer to your question in our <a href="/faq"
+                style="color: #667eea; text-decoration: none;">FAQ section</a>.</p>
+
+        <h2>Business Hours</h2>
+        <div class="faq-item">
+            <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM EST</p>
+            <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM EST</p>
+            <p><strong>Sunday:</strong> Closed</p>
+            <p><em>We observe major US holidays and may have reduced hours during holiday periods.</em></p>
+        </div>
+
+        <!-- Advertisement Section -->
+        <div class="ad-section">
+            <p class="ad-section-title">✨ Recommended For You ✨</p>
+            <div class="ad-banner-container">
+                <a href="https://app.partnerboost.com/track/6a1ee_aoxwlD2BW0rnKnULoSG8OIL5lSZtMHQdHe2w2NmMrDRTmeM5FMV5ycsh5RQzH97YCrTLGLG89Jb?url=https%3A%2F%2Fwww.amazon.com%2Fstores%2Fpage%2FCBE26F39-1ACE-4136-A9CC-41AF9839DA9B%3Fmaas%3Dmaas_adg_api_589526972041851153_static_12_201%26ref_%3Daa_maas%26tag%3Dmaas%26aa_campaignid%3D7edff09064d406c0a9774b46933bcbe9%26aa_adgroupid%3Dd52bjabB5zDgIs3aUQ5fAo2s6o5_b5TH7nYjrW5FYMGygX41GInHGtdX_bYLkTmRrRS2XGb_bS8h_baBsQ_c_c%26aa_creativeid%3Dae9e0f1q9fq1CRahd07N7ARn5eFUzOsjht61mA817Rr8IOE_c"
+                    class="ad-banner" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='ads/phone.jpg') }}" alt="Premium Mobile Accessories"
+                        class="ad-banner-image">
+                    <div class="ad-banner-content">
+                        <span class="ad-banner-badge">🔥 Hot Deal</span>
+                        <p class="ad-banner-title">Premium Mobile Accessories</p>
+                        <span class="ad-banner-cta">Shop Now</span>
+                    </div>
+                </a>
+                <a href="https://app.partnerboost.com/track/662b5O07xz94rE69DP7jeoRrEDynl3HHxnol1GUxXPizcJ68Y0g2uk4uYq_bPPcVGe1Y0XEZbBhXZPDqeGhZpD0w_c?url=https%3A%2F%2Fwww.amazon.com%2Fstores%2Fpage%2F8DA6A70A-A1F7-4FF5-BB93-CD1EA3EA342B%3Fmaas%3Dmaas_adg_api_584632148466405944_static_12_201%26ref_%3Daa_maas%26tag%3Dmaas%26aa_campaignid%3Dbd93c0c3063ad597de8eff160c0c9335%26aa_adgroupid%3D9d50bWtYsC6hYqnswUntIJoBPYgyfRNz5IMYC2nnbwxRmvraOHBKSqgJAp7JjxkMw5fhd2wBX2_ag8qt5G3Mx%26aa_creativeid%3Db998eincJZX5tHorSBzTqOISZQMz7Hru98obGjINp5xHnMc_c"
+                    class="ad-banner" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='ads/dog.jpg') }}" alt="Pet Supplies & More"
+                        class="ad-banner-image">
+                    <div class="ad-banner-content">
+                        <span class="ad-banner-badge">🐕 Pet Lovers</span>
+                        <p class="ad-banner-title">Pet Supplies & More</p>
+                        <span class="ad-banner-cta">Shop Now</span>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-    
-    <div class="footer-bottom">
-        <p>&copy; 2025 2000s Filter Lab. All rights reserved. | Made with ❤️ for nostalgic memories</p>
-    </div>
-</footer>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>2000s Filter Lab</h4>
+                <p>Transform your photos with nostalgic millennium styles. Experience the magic of CCD, VHS, Film, and
+                    Y2K aesthetics.</p>
+                <div class="social-links">
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#filters">Filter Categories</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/faq">Help Center</a></li>
+                    <li><a href="/contact">Contact Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📧 support@2000sfilterlab.com</p>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>📍 123 Digital Street, Tech City, TC 12345</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 2000s Filter Lab. All rights reserved. | Made with ❤️ for nostalgic memories</p>
+        </div>
+    </footer>
 </body>
+
 </html>
