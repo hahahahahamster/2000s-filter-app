@@ -3,12 +3,14 @@ import os
 import sys
 import io
 import base64
-
-# Add parent directory to path for imports
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from filters import apply_filter
 from werkzeug.utils import secure_filename
+
+# Add api directory to path for imports
+api_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, api_dir)
+
+# Import filters from api directory
+from filters import apply_filter
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.secret_key = "2000sfiltersecret"
