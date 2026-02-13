@@ -98,6 +98,10 @@ def about():
 def contact():
     return render_template('contact.html')
 
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy.html')
+
 # 不再需要下载路由，图片直接通过主路由返回
 
 if __name__ == '__main__':
